@@ -48,6 +48,8 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 ### Procedure
 
 1.	Create a New Project:
+
+
 Open Quartus and create a new project by selecting "File" > "New Project Wizard."
 Follow the wizard's instructions to set up your project, including specifying the project name, location, and target device (FPGA).
 
