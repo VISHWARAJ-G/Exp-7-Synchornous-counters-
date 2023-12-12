@@ -64,6 +64,8 @@ Open the newly created Verilog or VHDL file and write the code for your combinat
 
 
 4.	Compile the Project:
+
+
 To compile the project, click on "Processing" > "Start Compilation" in the menu.
 Quartus will analyze your code, synthesize it into a netlist, and perform optimizations based on your target FPGA device.
 
@@ -76,6 +78,8 @@ View the RTL diagram.
 
 
 6.	Verification:
+
+
 Click on "File" > "New" > "Verification/Debugging Files" > "University Program VWF".
 Once Waveform is created Right Click on the Input/Output Panel > " Insert Node or Bus" > Click on Node Finder > Click On "List" > Select All.
  
@@ -144,5 +148,7 @@ endmodule
 
 #### Down_Counter
 
+![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/fd6cc85d-e2b9-4a17-a32b-7660f7926de7)
 
 ### RESULTS 
+By this we have verified the truth table of 4-bit up-counter using verilog.
