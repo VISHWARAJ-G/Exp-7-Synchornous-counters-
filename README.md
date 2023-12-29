@@ -110,20 +110,15 @@ endmodule
 ````
 #### Down_Counter
 ````
-module Down_counter (
-  input clk,
-  input reset,
-  output reg [3:0] q
-);
-
-always @(posedge clk or posedge reset) begin
-  if (reset) begin
-    q <= 4'b1111; // Set initial value to 15
-  end else begin
-    q <= q - 4'b0001; // Decrement by 1
-  end
+module Down_counter(clk,q1,q2,q3);
+input clk;
+output reg q1,q2,q3;
+always@(posedge clk)
+begin
+q3=((~q2)&(~q1))^q3;
+q2=(~q1)^q2;
+q1=1^q1;
 end
-
 endmodule
 ````
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
@@ -136,7 +131,8 @@ endmodule
 
 #### Down_Counter
 
-![Down_counter RTL](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/adcffc91-ec25-421c-9ba0-7494229f745c)
+![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/ec99451e-105c-49a1-910d-0eea05e1070f)
+
 
 
 ### TIMING DIGRAMS FOR COUNTER  
@@ -156,7 +152,8 @@ endmodule
 
 #### Down_Counter
 
-![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/fd6cc85d-e2b9-4a17-a32b-7660f7926de7)
+![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/ef691667-2a67-457d-83e7-932908f2928d)
+
 
 ### RESULTS 
-By this we have verified the truth table of 3-bit up-counter using verilog.
+By this we have verified the truth table of 3-bit up-counter and 3-bit down-counter using verilog.
