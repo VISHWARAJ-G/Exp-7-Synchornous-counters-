@@ -5,7 +5,7 @@
 ### THEORY 
 
 ## UP COUNTER 
-The counter is a digital sequential circuit and here it is a 3 bit counter, which simply means it can count from 0 to 15 and vice versa based upon the direction of counting (up/down). 
+The counter is a digital sequential circuit and here it is a 3 bit counter, which simply means it can count from 0 to 8 and vice versa based upon the direction of counting (up/down). 
 
 The counter (“count“) value will be evaluated at every positive (rising) edge of the clock (“clk“) cycle.
 The Counter will be set to Zero when “reset” input is at logic high.
@@ -142,17 +142,19 @@ endmodule
 
 
 #### Down_Counter
-![Down_counter Output](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/5fcc05cb-5d6e-472e-ad23-ad950c65954d)
+![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/ef691667-2a67-457d-83e7-932908f2928d)
 
 ### TRUTH TABLE 
 
 #### Up_Counter
 
-![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/425ea758-bc73-4b46-b95d-af15a7593fee)
+![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/23f57280-ec7d-4d7b-af22-72e0583ddb1f)
+
 
 #### Down_Counter
 
-![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/ef691667-2a67-457d-83e7-932908f2928d)
+![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/d9037bd3-2f49-48b5-b019-184b5fd00fb3)
+
 
 
 ### RESULTS 
