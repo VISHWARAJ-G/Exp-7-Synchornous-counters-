@@ -5,34 +5,36 @@
 ### THEORY 
 
 ## UP COUNTER 
-The counter is a digital sequential circuit and here it is a 4 bit counter, which simply means it can count from 0 to 15 and vice versa based upon the direction of counting (up/down). 
+The counter is a digital sequential circuit and here it is a 3 bit counter, which simply means it can count from 0 to 15 and vice versa based upon the direction of counting (up/down). 
 
 The counter (“count“) value will be evaluated at every positive (rising) edge of the clock (“clk“) cycle.
 The Counter will be set to Zero when “reset” input is at logic high.
 The counter will be loaded with “data” input when the “load” signal is at logic high. Otherwise, it will count up or down.
 The counter will count up when the “up_down” signal is logic high, otherwise count down
 
-Since we know that binary count sequences follow a pattern of octave (factor of 2) frequency division, and that J-K flip-flop multivibrators set up for the “toggle” mode are capable of performing this type of frequency division, we can envision a circuit made up of several J-K flip-flops, cascaded to produce four bits of output.
+Since we know that binary count sequences follow a pattern of octave (factor of 2) frequency division, and that t flip-flop multivibrators set up for the “toggle” mode are capable of performing this type of frequency division, we can envision a circuit made up of several t flip-flops, cascaded to produce four bits of output.
 The main problem facing us is to determine how to connect these flip-flops together so that they toggle at the right times to produce the proper binary sequence.
 Examine the following binary count sequence, paying attention to patterns preceding the “toggling” of a bit between 0 and 1:
 Binary count sequence, paying attention to patterns preceding the “toggling” of a bit between 0 and 1.
 
-Note that each bit in this four-bit sequence toggles when the bit before it (the bit having a lesser significance, or place-weight), toggles in a particular direction: from 1 to 0.
+Note that each bit in this three-bit sequence toggles when the bit before it (the bit having a lesser significance, or place-weight), toggles in a particular direction: from 1 to 0.
 
 
 
  
  
 
-Starting with four J-K flip-flops connected in such a way to always be in the “toggle” mode, we need to determine how to connect the clock inputs in such a way so that each succeeding bit toggles when the bit before it transitions from 1 to 0.
+Starting with four t flip-flops connected in such a way to always be in the “toggle” mode, we need to determine how to connect the clock inputs in such a way so that each succeeding bit toggles when the bit before it transitions from 1 to 0.
 
-The Q outputs of each flip-flop will serve as the respective binary bits of the final, four-bit count:
+The Q outputs of each flip-flop will serve as the respective binary bits of the final, three-bit count:
 
  
  
 
-Four-bit “Up” Counter
-![image](https://user-images.githubusercontent.com/36288975/169644758-b2f4339d-9532-40c5-af40-8f4f8c942e2c.png)
+Three-bit “Up” Counter
+![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/b6ed7a86-95db-4067-9d7e-25e78b0cebb4)
+
+
 
 
 
@@ -40,11 +42,12 @@ Four-bit “Up” Counter
 
 As well as counting “up” from zero and increasing or incrementing to some preset value, it is sometimes necessary to count “down” from a predetermined value to zero allowing us to produce an output that activates when the zero count or some other pre-set value is reached.
 
-This type of counter is normally referred to as a Down Counter, (CTD). In a binary or BCD down counter, the count decreases by one for each external clock pulse from some preset value. Special dual purpose IC’s such as the TTL 74LS193 or CMOS CD4510 are 4-bit binary Up or Down counters which have an additional input pin to select either the up or down count mode.
-![image](https://user-images.githubusercontent.com/36288975/169644844-1a14e123-7228-4ed8-81a9-eb937dff4ac8.png)
+This type of counter is normally referred to as a Down Counter, (CTD). In a binary or BCD down counter, the count decreases by one for each external clock pulse from some preset value. Special dual purpose IC’s such as the TTL 74LS193 or CMOS CD4510 are 3-bit binary Up or Down counters which have an additional input pin to select either the up or down count mode.
+![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/eb82f3f7-212a-4e88-b31f-bf9d095135bf)
 
 
-4-bit Count Down Counter
+
+3-bit Count Down Counter
 ### Procedure
 
 1.	Create a New Project:
@@ -92,15 +95,14 @@ Give the Input Combinations according to the Truth Table amd then simulate the O
 
 #### UP_Counter
 ````
-module Up_counters(clk,A);
+module Up_counters(clk,q1,q2,q3);
 input clk;
-output reg[0:3]A;
+output reg q1,q2,q3;
 always@(posedge clk)
 begin
-A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
-A[1]=(((A[2])&(A[3]))^A[1]);
-A[2]=((A[3])^A[2]);
-A[3]=1^A[3];
+q3=(q1&q2)^q3;
+q2=q1^q2;
+q1=1^q1;
 end 
 endmodule
 ````
@@ -126,7 +128,8 @@ endmodule
 
 #### UP_Counter
 
-![UP_counter RTL](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/cfac5cf9-d396-4844-841f-655b62b20c8e)
+![Screenshot (98)](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/a0da32e9-5f87-47f6-9086-3a07e2b1422a)
+
 
 
 #### Down_Counter
@@ -137,7 +140,8 @@ endmodule
 ### TIMING DIGRAMS FOR COUNTER  
 
 #### UP_Counter
-![UP_counter Output](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/bb1f5276-ef2f-47c4-822e-7088ba3aff24)
+![Screenshot (99)](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/4a9885e6-2e0e-4109-a422-278b88af74a1)
+
 
 #### Down_Counter
 ![Down_counter Output](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/5fcc05cb-5d6e-472e-ad23-ad950c65954d)
@@ -153,4 +157,4 @@ endmodule
 ![image](https://github.com/VISHWARAJ-G/Exp-7-Synchornous-counters-/assets/140417431/fd6cc85d-e2b9-4a17-a32b-7660f7926de7)
 
 ### RESULTS 
-By this we have verified the truth table of 4-bit up-counter using verilog.
+By this we have verified the truth table of 3-bit up-counter using verilog.
