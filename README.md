@@ -12,7 +12,7 @@ The Counter will be set to Zero when “reset” input is at logic high.
 The counter will be loaded with “data” input when the “load” signal is at logic high. Otherwise, it will count up or down.
 The counter will count up when the “up_down” signal is logic high, otherwise count down
 
-Since we know that binary count sequences follow a pattern of octave (factor of 2) frequency division, and that t flip-flop multivibrators set up for the “toggle” mode are capable of performing this type of frequency division, we can envision a circuit made up of several t flip-flops, cascaded to produce four bits of output.
+Since we know that binary count sequences follow a pattern of octave (factor of 2) frequency division, and that D flip-flop multivibrators set up for the “toggle” mode are capable of performing this type of frequency division, we can envision a circuit made up of several D flip-flops, cascaded to produce four bits of output.
 The main problem facing us is to determine how to connect these flip-flops together so that they toggle at the right times to produce the proper binary sequence.
 Examine the following binary count sequence, paying attention to patterns preceding the “toggling” of a bit between 0 and 1:
 Binary count sequence, paying attention to patterns preceding the “toggling” of a bit between 0 and 1.
@@ -24,7 +24,7 @@ Note that each bit in this three-bit sequence toggles when the bit before it (th
  
  
 
-Starting with four t flip-flops connected in such a way to always be in the “toggle” mode, we need to determine how to connect the clock inputs in such a way so that each succeeding bit toggles when the bit before it transitions from 1 to 0.
+Starting with four D flip-flops connected in such a way to always be in the “toggle” mode, we need to determine how to connect the clock inputs in such a way so that each succeeding bit toggles when the bit before it transitions from 1 to 0.
 
 The Q outputs of each flip-flop will serve as the respective binary bits of the final, three-bit count:
 
